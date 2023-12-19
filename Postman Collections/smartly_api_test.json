@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "493e320c-64e8-4221-bb4a-d2aafc62d96a",
+		"name": "Smartly - API Test Automation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "f4609c07-b738-4a65-b47c-82c82ace8b62",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Number of users is equal to 10\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.length).to.eql(10);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "4872a8c4-31e4-4466-a1b5-f48ad4310b38",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{BaseUrl}}/users"
+			},
+			"response": []
+		},
+		{
+			"name": "User by ID",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "21ef1fd4-6194-4ae9-aa11-df3cff3e89f5",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"JSON contains 'Nicholas Runolfsdottir V'\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.eql(\"Nicholas Runolfsdottir V\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "c822b64a-6a4c-4b7c-8da8-3497b7f0c8f2",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseUrl}}/users/:userid",
+					"host": [
+						"{{BaseUrl}}"
+					],
+					"path": [
+						"users",
+						":userid"
+					],
+					"variable": [
+						{
+							"key": "userid",
+							"value": "8"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1c392bc6-c5e7-4a9c-87aa-7e41f16ce672",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Verify User is added\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.eql(\"Santa Claus\");\r",
+							"    pm.expect(jsonData.username).to.eql(\"Delphine\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"id": "7df1e7f5-9a16-4b0b-b89c-a0dab55b8dcb",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Santa Claus\",\r\n    \"username\": \"Delphine\",\r\n    \"email\": \"Chaim_McDermott@dana.io\",\r\n    \"address\": {\r\n        \"street\": \"Dayna Park\",\r\n        \"suite\": \"Suite 449\",\r\n        \"city\": \"Bartholomebury\",\r\n        \"zipcode\": \"76495-3109\",\r\n        \"geo\": {\r\n            \"lat\": \"24.6463\",\r\n            \"lng\": \"-168.8889\"\r\n        }\r\n    },\r\n    \"phone\": \"(775)976-6794 x41206\",\r\n    \"website\": \"conrad.com\",\r\n    \"company\": {\r\n        \"name\": \"Yost and Sons\",\r\n        \"catchPhrase\": \"Switchable contextually-based project\",\r\n        \"bs\": \"aggregate real-time technologies\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{BaseUrl}}/users"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "7377991c-1f77-425e-8b2d-94df95c2beeb",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "49773c5b-355a-41c1-a481-868120275470",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseUrl",
+			"value": "https://jsonplaceholder.typicode.com",
+			"type": "string"
+		}
+	]
+}
