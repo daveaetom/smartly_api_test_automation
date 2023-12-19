@@ -98,7 +98,7 @@
 							"pm.test(\"Verify User is added\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
 							"    pm.expect(jsonData.name).to.eql(\"Santa Claus\");\r",
-							"    pm.expect(jsonData.username).to.eql(\"Delphine\");\r",
+							"    pm.expect(jsonData.username).to.eql(\"Santa\");\r",
 							"});"
 						],
 						"type": "text/javascript"
@@ -114,7 +114,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"Santa Claus\",\r\n    \"username\": \"Delphine\",\r\n    \"email\": \"Chaim_McDermott@dana.io\",\r\n    \"address\": {\r\n        \"street\": \"Dayna Park\",\r\n        \"suite\": \"Suite 449\",\r\n        \"city\": \"Bartholomebury\",\r\n        \"zipcode\": \"76495-3109\",\r\n        \"geo\": {\r\n            \"lat\": \"24.6463\",\r\n            \"lng\": \"-168.8889\"\r\n        }\r\n    },\r\n    \"phone\": \"(775)976-6794 x41206\",\r\n    \"website\": \"conrad.com\",\r\n    \"company\": {\r\n        \"name\": \"Yost and Sons\",\r\n        \"catchPhrase\": \"Switchable contextually-based project\",\r\n        \"bs\": \"aggregate real-time technologies\"\r\n    }\r\n}",
+					"raw": "{\r\n    \"name\": \"Santa Claus\",\r\n    \"username\": \"Santa\",\r\n    \"email\": \"Chaim_McDermott@dana.io\",\r\n    \"address\": {\r\n        \"street\": \"Dayna Park\",\r\n        \"suite\": \"Suite 449\",\r\n        \"city\": \"Bartholomebury\",\r\n        \"zipcode\": \"76495-3109\",\r\n        \"geo\": {\r\n            \"lat\": \"24.6463\",\r\n            \"lng\": \"-168.8889\"\r\n        }\r\n    },\r\n    \"phone\": \"(775)976-6794 x41206\",\r\n    \"website\": \"conrad.com\",\r\n    \"company\": {\r\n        \"name\": \"Yost and Sons\",\r\n        \"catchPhrase\": \"Switchable contextually-based project\",\r\n        \"bs\": \"aggregate real-time technologies\"\r\n    }\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
